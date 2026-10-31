@@ -15,7 +15,6 @@ def memoize(func):
             key = (args, frozenset(kwargs.items()))
             hash(key)
         except TypeError:
-            # Не кэшируем вызовы с нехешируемыми аргументами.
             return func(*args, **kwargs)
 
         if key in cache:
